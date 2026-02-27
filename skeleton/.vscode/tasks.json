@@ -1,0 +1,313 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Launch Android Emulator (Auto)",
+            "type": "shell",
+            "command": "emulator_id=$(flutter emulators | grep -o '[a-zA-Z0-9_-]*' | grep -v 'emulators' | head -1) && flutter emulators --launch $emulator_id && echo 'Waiting for emulator to boot...' && adb wait-for-device && while [ \"$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\\r')\" != \"1\" ]; do sleep 1; done && sleep 5 && echo 'Emulator fully ready!'",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Launch Android Emulator (Select)",
+            "type": "shell",
+            "command": "flutter emulators --launch ${input:emulatorId}",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "List Android Emulators",
+            "type": "shell",
+            "command": "flutter emulators",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build Dev (Debug)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "apk",
+                "--dart-define=ENVIRONMENT=dev",
+                "--flavor=dev",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build UAT (Debug)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "apk",
+                "--dart-define=ENVIRONMENT=uat",
+                "--flavor=uat",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build Prod (Debug)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "apk",
+                "--dart-define=ENVIRONMENT=prod",
+                "--flavor=prod",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build Dev (Release)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "apk",
+                "--dart-define=ENVIRONMENT=dev",
+                "--flavor=dev",
+                "--release",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build UAT (Release)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "apk",
+                "--dart-define=ENVIRONMENT=uat",
+                "--flavor=uat",
+                "--release",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build Prod (Release)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "apk",
+                "--dart-define=ENVIRONMENT=prod",
+                "--flavor=prod",
+                "--release",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build iOS Dev (Debug)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "ios",
+                "--dart-define=ENVIRONMENT=dev",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build iOS UAT (Debug)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "ios",
+                "--dart-define=ENVIRONMENT=uat",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build iOS Prod (Debug)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "ios",
+                "--dart-define=ENVIRONMENT=prod",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build iOS Dev (Release)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "ios",
+                "--dart-define=ENVIRONMENT=dev",
+                "--release",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build iOS UAT (Release)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "ios",
+                "--dart-define=ENVIRONMENT=uat",
+                "--release",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Flutter: Build iOS Prod (Release)",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "build",
+                "ios",
+                "--dart-define=ENVIRONMENT=prod",
+                "--release",
+                "-v"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "emulatorId",
+            "type": "promptString",
+            "description": "Enter emulator ID (e.g., Pixel_3a_API_30_x86)",
+            "default": ""
+        }
+    ]
+}

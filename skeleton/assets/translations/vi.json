@@ -1,0 +1,49 @@
+{
+    "menu": {
+        "home": "Trang chủ",
+        "chart": "Biểu đồ",
+        "work_order": "Lệnh bảo trì",
+        "work_request": "Yêu cầu bảo trì",
+        "profile": "Cá nhân"
+    },
+    "common": {
+        "all": "Tất cả",
+        "upload_image": "Tải ảnh",
+        "photo_gallery": "Bộ sưu tập hình ảnh",
+        "camera": "Chụp ảnh",
+        "cancel": "Huỷ",
+        "confirm": "Xác nhận"
+    },
+    "search": {
+        "hint": "Tìm theo Thiết bị / Vị trí"
+    },
+    "login": {
+        "login": "Đăng nhập",
+        "username": "Tên đăng nhập",
+        "username_hint": "Nhập tên đăng nhập",
+        "password": "Mật khẩu",
+        "password_hint": "Nhập mật khẩu",
+        "forgot_password": "Quên mật khẩu",
+        "remember_password": "Ghi nhớ mật khẩu"
+    },
+    "movies": {
+        "title": "Phim",
+        "now_playing": "Đang Chiếu",
+        "popular": "Phổ Biến",
+        "top_rated": "Đánh Giá Cao",
+        "upcoming": "Sắp Chiếu",
+        "unknown": "Không rõ",
+        "error_loading": "Lỗi tải phim",
+        "retry": "Thử lại",
+        "no_movies_found": "Không tìm thấy phim"
+    },
+    "tv_shows": {
+        "title": "Chương Trình TV",
+        "airing_today": "Phát Hôm Nay",
+        "on_the_air": "Đang Phát Sóng",
+        "popular": "Phổ Biến",
+        "top_rated": "Đánh Giá Cao",
+        "coming_soon": "Chương trình TV sẽ hiển thị ở đây",
+        "connect_api": "Kết nối TMDB API để tải chương trình TV"
+    }
+}

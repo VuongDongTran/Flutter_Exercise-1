@@ -1,0 +1,158 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "skeleton (Dev - Android Debug)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "android",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=dev",
+                "--dart-define=ENVIRONMENT=dev"
+            ]
+        },
+        {
+            "name": "skeleton (Dev - Android Auto Emulator)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "preLaunchTask": "Launch Android Emulator (Auto)",
+            "args": [
+                "--flavor=dev",
+                "--dart-define=ENVIRONMENT=dev"
+            ]
+        },
+        {
+            "name": "skeleton (Dev - iOS Debug Simulator)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "ios",
+            "flutterMode": "debug",
+            "args": [
+                "--dart-define=ENVIRONMENT=dev"
+            ]
+        },
+        {
+            "name": "skeleton (UAT - Android Debug)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "android",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=uat",
+                "--dart-define=ENVIRONMENT=uat"
+            ]
+        },
+        {
+            "name": "skeleton (UAT - iOS Debug Simulator)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "ios",
+            "flutterMode": "debug",
+            "args": [
+                "--dart-define=ENVIRONMENT=uat"
+            ]
+        },
+        {
+            "name": "skeleton (Prod - Android Debug)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "android",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=prod",
+                "--dart-define=ENVIRONMENT=prod"
+            ]
+        },
+        {
+            "name": "skeleton (Prod - iOS Debug Simulator)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "ios",
+            "flutterMode": "debug",
+            "args": [
+                "--dart-define=ENVIRONMENT=prod"
+            ]
+        },
+        {
+            "name": "skeleton (Dev - Android Profile)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "android",
+            "flutterMode": "profile",
+            "args": [
+                "--flavor=dev",
+                "--dart-define=ENVIRONMENT=dev"
+            ]
+        },
+        {
+            "name": "skeleton (Dev - iOS Profile)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "ios",
+            "flutterMode": "profile",
+            "args": [
+                "--dart-define=ENVIRONMENT=dev"
+            ]
+        },
+        {
+            "name": "skeleton (Dev - Android Release)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "android",
+            "flutterMode": "release",
+            "args": [
+                "--flavor=dev",
+                "--dart-define=ENVIRONMENT=dev"
+            ]
+        },
+        {
+            "name": "skeleton (Dev - iOS Release)",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "ios",
+            "flutterMode": "release",
+            "args": [
+                "--dart-define=ENVIRONMENT=dev"
+            ]
+        },
+        {
+            "name": "Build Android APK (Release)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "build",
+                "apk",
+                "--release"
+            ]
+        },
+        {
+            "name": "Build Android App Bundle (Release)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "build",
+                "appbundle",
+                "--release"
+            ]
+        },
+        {
+            "name": "Build Android APK (Split per ABI)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart",
+            "args": [
+                "build",
+                "apk",
+                "--release",
+                "--split-per-abi"
+            ]
+        }
+    ]
+}

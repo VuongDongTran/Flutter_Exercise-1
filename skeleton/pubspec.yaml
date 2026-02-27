@@ -1,0 +1,78 @@
+name: skeleton
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.2+2024010501
+
+environment:
+  sdk: '>=3.11.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.2
+  flutter_bloc: ^9.1.1
+  logger: ^2.0.1
+  pull_to_refresh: ^2.0.0
+  connectivity_plus: ^7.0.0
+  global_configs: ^1.1.2
+  dio: ^5.3.1
+  freezed_annotation: ^3.1.0
+  json_annotation: ^4.11.0
+  permission_handler: ^12.0.1
+  modal_bottom_sheet: ^3.0.0
+  flutter_localizations:
+    sdk: flutter
+  flutter_easyloading: ^3.0.5
+  shared_preferences: ^2.2.0
+  encrypt_shared_preferences: ^0.9.10
+  basic_utils: ^5.7.0
+  easy_debounce: ^2.0.3
+  get_it: ^9.2.1
+  dev: ^1.0.0
+  flutter_flavor: ^3.1.1
+  google_fonts: ^8.0.2
+  iconsax: ^0.0.8
+  device_info_plus: ^12.3.0
+  responsive_builder: ^0.7.0
+  equatable: ^2.0.5
+  flutter_svg: ^2.0.7
+  after_layout: ^1.2.0
+  loadmore: ^2.1.0
+  image_picker: ^1.0.4
+  http_parser: ^4.0.2
+  full_screen_image: ^2.0.0
+  carousel_slider: ^5.1.2
+  expandable_page_view: ^1.0.17
+  intl: ^0.20.2
+  cached_network_image: ^3.3.0
+  shimmer: ^3.0.0
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.4.6
+  freezed: ^3.2.0
+  flutter_lints: ^6.0.0
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/fonts/
+    - assets/config/
+    - assets/config/server_dev.json
+    - assets/translations/
+    - assets/images/
+
+
+
+  fonts:
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/Quicksand-VariableFont_wght.ttf

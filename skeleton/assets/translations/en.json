@@ -1,0 +1,47 @@
+{
+    "menu": {
+        "home": "Home",
+        "chart": "Chart",
+        "work_order": "Work Order",
+        "work_request": "Work Request",
+        "profile": "Profile"
+    },
+    "common": {
+        "all": "All",
+        "upload_image": "Upload image",
+        "photo_gallery": "Photo gallery",
+        "camera": "Camera"
+    },
+    "search": {
+        "hint": "Tìm theo Thiết bị / Vị trí"
+    },
+    "login": {
+        "login": "login",
+        "username": "username",
+        "username_hint": "Enter your username",
+        "password": "Password",
+        "password_hint": "Enter your password",
+        "forgot_password": "Forgot password",
+        "remember_password": "Remember password"
+    },
+    "movies": {
+        "title": "Movies",
+        "now_playing": "Now Playing",
+        "popular": "Popular",
+        "top_rated": "Top Rated",
+        "upcoming": "Upcoming",
+        "unknown": "Unknown",
+        "error_loading": "Error loading movies",
+        "retry": "Retry",
+        "no_movies_found": "No movies found"
+    },
+    "tv_shows": {
+        "title": "TV Shows",
+        "airing_today": "Airing Today",
+        "on_the_air": "On The Air",
+        "popular": "Popular",
+        "top_rated": "Top Rated",
+        "coming_soon": "TV Shows will be displayed here",
+        "connect_api": "Connect to TMDB API to fetch TV shows"
+    }
+}
