@@ -38,6 +38,13 @@ abstract class TheMovieDBService extends BaseService {
     int page = 1,
     String language = 'en-US',
   });
+
+  /// Search movies by query
+  Future<MoviesResponse> searchMovies(
+    String query, {
+    int page = 1,
+    String language = 'en-US',
+  });
 }
 
 /// Implementation of TheMovieDB service
@@ -117,6 +124,34 @@ class TheMovieDBServiceImpl extends TheMovieDBService {
       page: page,
       language: language,
     );
+  }
+
+  @override
+  Future<MoviesResponse> searchMovies(
+    String query, {
+    int page = 1,
+    String language = 'en-US',
+  }) async {
+    try {
+      final response = await rest.dio.get<String>(
+        TheMovieDBConstants.movieSearch,
+        queryParameters: {
+          TheMovieDBConstants.paramApiKey: TheMovieDBConstants.apiKey,
+          'query': query,
+          TheMovieDBConstants.paramPage: page,
+          'language': language,
+        },
+      );
+      
+      if (response.statusCode == 200 && response.data != null) {
+        final Map<String, dynamic> jsonData = 
+            json.decode(response.data!) as Map<String, dynamic>;
+        return MoviesResponse.fromJson(jsonData);
+      }
+      throw Exception('Failed to search movies');
+    } catch (e) {
+      rethrow;
+    }
   }
 }
 

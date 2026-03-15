@@ -6,7 +6,7 @@ abstract class TheMovieDBConstants {
   static const String imageBaseUrl = 'https://image.tmdb.org/t/p';
   
   // API Key
-  static const String apiKey = 'xxxxxxxx'; // Replace with your actual API key
+  static const String apiKey = '996a247a34da0a64a095c8f785896a6d'; // Replace with your actual API key
 
   // API Endpoints
   static const String movieNowPlaying = '/movie/now_playing';
@@ -14,6 +14,7 @@ abstract class TheMovieDBConstants {
   static const String movieTopRated = '/movie/top_rated';
   static const String movieUpcoming = '/movie/upcoming';
   static const String movieDetails = '/movie';
+  static const String movieSearch = '/search/movie';
 
   // Query Parameters
   static const String paramApiKey = 'api_key';

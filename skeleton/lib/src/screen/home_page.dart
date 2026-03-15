@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
-import '../common/app_helper.dart';
-import '../theme/colors_theme.dart';
-import '../widgets/bottom_appbar.dart';
-import 'movies/movies_tab_page.dart';
-import 'tv_shows/tv_shows_tab_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iconsax/iconsax.dart';
 
+import '../app_dependency.dart';
+import '../bloc/movies/movies_cubit.dart';
+import '../bloc/movies/movies_state.dart';
+import '../common/app_localizations.dart';
+import '../preferences/user_preference.dart';
+import '../theme/colors_theme.dart';
+import '../widgets/category.dart';
+import '../widgets/film_card.dart';
+import '../widgets/home_page.dart';
+
+/// Home page displaying greeting, categories, and popular content
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -13,62 +21,94 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
-  
-  // List of tab pages - Only Movies and TV Shows
-  final List<Widget> _tabPages = const [
-    MoviesTabPage(),
-    TVShowsTabPage(),
-  ];
-  
+  late MoviesCubit _moviesCubit;
+  Category _selectedCategory = Category.movies;
+  String _userName = 'User';
+  String _searchKey = '';
+
   @override
   void initState() {
     super.initState();
+    _moviesCubit = AppDependencies.injector.get<MoviesCubit>();
+    _loadUserName();
+    _loadInitialContent();
+  }
+
+  Future<void> _loadUserName() async {
+    try {
+      final userPref = AppDependencies.injector.get<UserPreference>();
+      final username = await userPref.getValue('USERNAME') ?? 'User';
+      setState(() {
+        _userName = username;
+      });
+    } catch (e) {
+      // Ignore - use default
+    }
+  }
+
+  void _loadInitialContent() {
+    _moviesCubit.getMovies();
+  }
+
+  void _onSearchChanged(String query) {
+    setState(() {
+      _searchKey = query;
+    });
+  }
+
+  String _getUserInitial() {
+    return _userName.isNotEmpty ? _userName[0].toUpperCase() : 'U';
+  }
+
+  void _onCategorySelected(Category category) {
+    setState(() {
+      _selectedCategory = category;
+    });
+
   }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        AppHelper.isTablet()
-            ? CustomBottomAppbar(
-                currentIndex: _currentIndex,
-                onTabChanged: (index) {
-                  setState(() {
-                    _currentIndex = index;
-                  });
+    return Scaffold(
+      backgroundColor: AppColors.white,
+      body: GestureDetector(
+        onHorizontalDragUpdate: (details) => _handleBack(details, context),
+        child: CustomScrollView(
+          slivers: [
+            // Greeting Header
+            SliverToBoxAdapter(
+              child: Homepage(
+                greeting: context.tr('home.greeting'),
+                moviesCubit: _moviesCubit,
+                userInitial: _getUserInitial(),
+                onSearchChanged: _onSearchChanged,
+                onSearchPressed: () {
+                  _moviesCubit.loadPopularMovies(searchKey: _searchKey);
                 },
-              )
-            : const SizedBox.shrink(),
-        Expanded(
-          child: GestureDetector(
-            onHorizontalDragUpdate: (details) => _handleBack(details, context),
-            child: Scaffold(
-              backgroundColor: AppColors.white,
-              body: _buildCurrentPage(),
-              bottomNavigationBar: AppHelper.isTablet()
-                  ? null
-                  : CustomBottomAppbar(
-                      currentIndex: _currentIndex,
-                      onTabChanged: (index) {
-                        setState(() {
-                          _currentIndex = index;
-                        });
-                      },
-                    ),
+              ),
             ),
-          ),
+            SliverToBoxAdapter(
+              child: SizedBox(height: 24),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(height: 24),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(height: 24),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 
-  Widget _buildCurrentPage() {
-    // Return the page based on current index
-    if (_currentIndex >= 0 && _currentIndex < _tabPages.length) {
-      return _tabPages[_currentIndex];
-    }
-    return const MoviesTabPage(); // Default fallback to Movies
+  Widget _buildShimmerCard() {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.neutral10,
+        borderRadius: BorderRadius.circular(12),
+      ),
+    );
   }
 
   void _handleBack(DragUpdateDetails details, BuildContext context) {

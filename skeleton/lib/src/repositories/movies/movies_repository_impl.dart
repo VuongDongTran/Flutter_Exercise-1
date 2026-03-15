@@ -66,4 +66,17 @@ class MoviesRepositoryImpl implements MoviesRepository {
       language: language,
     );
   }
+
+  @override
+  Future<MoviesResponse> searchMovies(
+    String query, {
+    int page = 1,
+    String language = 'en-US',
+  }) {
+    return _theMovieDBService.searchMovies(
+      query,
+      page: page,
+      language: language,
+    );
+  }
 }

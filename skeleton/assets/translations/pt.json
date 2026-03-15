@@ -1,0 +1,66 @@
+{
+    "menu": {
+        "home": "Início",
+        "chart": "Gráfico",
+        "work_order": "Ordem de Serviço",
+        "work_request": "Solicitação de Serviço",
+        "profile": "Perfil"
+    },
+    "common": {
+        "all": "Todos",
+        "upload_image": "Enviar imagem",
+        "photo_gallery": "Galeria de Fotos",
+        "camera": "Câmera",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar",
+        "search": "Pesquisar",
+        "filter": "Filtrar",
+        "language": "Idioma"
+    },
+    "search": {
+        "hint": "Pesquisar filmes, séries..."
+    },
+    "login": {        "greeting": "OL\u00c1!",        "login": "Entrar",
+        "username": "Usuário",
+        "username_hint": "Digite seu usuário",
+        "password": "Senha",
+        "password_hint": "Digite sua senha",
+        "forgot_password": "Esqueceu a senha?",
+        "remember_password": "Lembrar senha"
+    },
+    "home": {
+        "greeting": "O que você quer\nassistir hoje?",
+        "search_hint": "Buscar",
+        "most_popular": "Mais populares",
+        "filter": "Filtrar"
+    },
+    "movies": {
+        "title": "Filmes",
+        "now_playing": "Agora em Cartaz",
+        "popular": "Popular",
+        "top_rated": "Mais Avaliados",
+        "upcoming": "Em Breve",
+        "unknown": "Desconhecido",
+        "error_loading": "Erro ao carregar filmes",
+        "retry": "Tentar Novamente",
+        "no_movies_found": "Nenhum filme encontrado"
+    },
+    "tv_shows": {
+        "title": "Séries",
+        "airing_today": "Exibindo Hoje",
+        "on_the_air": "Ao Ar",
+        "popular": "Popular",
+        "top_rated": "Mais Avaliadas",
+        "coming_soon": "Séries serão exibidas aqui",
+        "connect_api": "Conecte à API TMDB para buscar séries"
+    },
+    "categories": {
+        "films": "Filmes",
+        "series": "Séries",
+        "animes": "Animes",
+        "novels": "Novelas"
+    },
+    "content": {
+        "no_found": "Nenhum conteúdo encontrado"
+    }
+}

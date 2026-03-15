@@ -18,7 +18,7 @@ class MoviesLoaded extends MoviesState {
   final int currentPage;
   final int totalPages;
   final bool hasMorePages;
-
+  
   const MoviesLoaded({
     required this.movies,
     required this.currentPage,

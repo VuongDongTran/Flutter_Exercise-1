@@ -16,6 +16,7 @@
         "hint": "Tìm theo Thiết bị / Vị trí"
     },
     "login": {
+        "greeting": "HELLO!",
         "login": "login",
         "username": "username",
         "username_hint": "Enter your username",
@@ -33,7 +34,8 @@
         "unknown": "Unknown",
         "error_loading": "Error loading movies",
         "retry": "Retry",
-        "no_movies_found": "No movies found"
+        "no_movies_found": "No movies found",
+        "search_results": "Search Results"
     },
     "tv_shows": {
         "title": "TV Shows",
@@ -43,5 +45,27 @@
         "top_rated": "Top Rated",
         "coming_soon": "TV Shows will be displayed here",
         "connect_api": "Connect to TMDB API to fetch TV shows"
+    },
+    "language": {
+        "label": "Language",
+        "english": "English",
+        "spanish": "Español",
+        "vietnamese": "Tiếng Việt"
+    },
+    "home": {
+        "greeting": "What do you want\nto watch today?",
+        "search_hint": "Search movies, shows...",
+        "most_popular": "Most Popular",
+        "error_loading": "Error loading",
+        "retry": "Retry"
+    },
+    "categories": {
+        "films": "Movies",
+        "series": "TV Shows",
+        "animes": "Animes",
+        "novels": "Novels"
+    },
+    "content": {
+        "no_found": "No content found"
     }
 }

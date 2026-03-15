@@ -1,0 +1,69 @@
+{
+    "menu": {
+        "home": "Inicio",
+        "chart": "Gráfico",
+        "work_order": "Orden de Trabajo",
+        "work_request": "Solicitud de Trabajo",
+        "profile": "Perfil"
+    },
+    "common": {
+        "all": "Todos",
+        "upload_image": "Subir imagen",
+        "photo_gallery": "Galería de fotos",
+        "camera": "Cámara"
+    },
+    "search": {
+        "hint": "Buscar películas..."
+    },
+    "login": {
+        "greeting": "¡HOLA!",
+        "login": "Iniciar sesión",
+        "username": "Usuario",
+        "username_hint": "Ingresa tu usuario",
+        "password": "Contraseña",
+        "password_hint": "Ingresa tu contraseña",
+        "forgot_password": "¿Olvidaste tu contraseña?",
+        "remember_password": "Recuerda contraseña"
+    },
+    "movies": {
+        "title": "Películas",
+        "now_playing": "Ahora en Cines",
+        "popular": "Populares",
+        "top_rated": "Mejor Calificadas",
+        "upcoming": "Próximas",
+        "unknown": "Desconocido",
+        "error_loading": "Error cargando películas",
+        "retry": "Reintentar",
+        "no_movies_found": "No se encontraron películas",
+        "search_results": "Resultados de búsqueda"
+    },
+    "tv_shows": {
+        "title": "Series",
+        "airing_today": "Transmitiendo Hoy",
+        "on_the_air": "Al Aire",
+        "popular": "Populares",
+        "top_rated": "Mejor Calificadas",
+        "coming_soon": "Las series se mostrarán aquí",
+        "connect_api": "Conéctate a la API de TMDB para obtener series"
+    },
+    "language": {
+        "label": "Idioma",
+        "english": "English",
+        "spanish": "Español",
+        "vietnamese": "Tiếng Việt"
+    },
+    "home": {
+        "greeting": "¿Qué quieres\nver hoy?",
+        "search_hint": "Buscar películas, series...",
+        "most_popular": "Populares",
+        "error_loading": "Error al cargar",
+        "retry": "Reintentar"    },
+    "categories": {
+        "films": "Pel\u00edculas",
+        "series": "Series",
+        "animes": "Animes",
+        "novels": "Novelas"
+    },
+    "content": {
+        "no_found": "No se encontr\u00f3 contenido"    }
+}

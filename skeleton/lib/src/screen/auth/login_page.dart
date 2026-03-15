@@ -76,7 +76,7 @@ class _LoginPageState extends BaseStatefulWidgetState<LoginCubit, LoginPage> {
                 const SizedBox(
                   height: Dimens.size24,
                 ),
-                Text('XIN CHÀO !', style: titleTextStyle),
+                Text(context.tr('login.greeting'), style: titleTextStyle),
                 const SizedBox(
                   height: Dimens.size12,
                 ),
@@ -139,7 +139,7 @@ class _LoginPageState extends BaseStatefulWidgetState<LoginCubit, LoginPage> {
                     children: [
                       ValueListenableBuilder<bool>(
                         valueListenable: _checkBoxNotifier,
-                        builder: (_, value, __) {
+                        builder: (_, value, _) {
                           return SizedBox(
                             height: Dimens.size16,
                             width: Dimens.size16,

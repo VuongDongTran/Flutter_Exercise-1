@@ -20,11 +20,14 @@ class MoviesPage extends StatefulWidget {
 
 class _MoviesPageState extends State<MoviesPage> {
   late ScrollController _scrollController;
+  late TextEditingController _searchController;
+  bool _isSearching = false;
 
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
+    _searchController = TextEditingController();
     _scrollController.addListener(_onScroll);
 
     // Load initial movies
@@ -35,6 +38,7 @@ class _MoviesPageState extends State<MoviesPage> {
   void dispose() {
     _scrollController.removeListener(_onScroll);
     _scrollController.dispose();
+    _searchController.dispose();
     super.dispose();
   }
 
@@ -46,41 +50,53 @@ class _MoviesPageState extends State<MoviesPage> {
     }
   }
 
+  void _startSearch() {
+    setState(() {
+      _isSearching = true;
+    });
+  }
+
+  void _cancelSearch() {
+    setState(() {
+      _isSearching = false;
+      _searchController.clear();
+    });
+    context.read<MoviesCubit>().clearSearch();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(tr('movies.title')),
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            icon: const Icon(Iconsax.search_normal),
-            onPressed: () {
-              // TODO: Implement search
-            },
-          ),
-        ],
-      ),
+      appBar: _isSearching ? _buildSearchAppBar() : _buildDefaultAppBar(),
       body: Column(
         children: [
           // Categories tabs
-          Container(
-            height: 50,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: MovieCategory.values
-                  .asMap()
-                  .entries
-                  .expand((entry) => [
-                        _buildCategoryChip(entry.value, entry.key == 0),
-                        if (entry.key < MovieCategory.values.length - 1)
-                          const SizedBox(width: 8),
-                      ])
-                  .toList(),
+          if (!_isSearching)
+            Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: BlocBuilder<MoviesCubit, MoviesState>(
+                builder: (context, state) {
+                  return ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: MovieCategory.values
+                        .asMap()
+                        .entries
+                        .expand((entry) => [
+                              _buildCategoryChip(
+                                entry.value,
+                                context.read<MoviesCubit>().currentCategory ==
+                                    entry.value,
+                              ),
+                              if (entry.key < MovieCategory.values.length - 1)
+                                const SizedBox(width: 8),
+                            ])
+                        .toList(),
+                  );
+                },
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
+          if (!_isSearching) const SizedBox(height: 16),
           // Movies grid
           Expanded(
             child: BlocBuilder<MoviesCubit, MoviesState>(
@@ -88,6 +104,14 @@ class _MoviesPageState extends State<MoviesPage> {
                 return state.maybeWhen(
                   loading: () => _buildLoadingShimmer(),
                   loaded: (movies, currentPage, totalPages, hasMorePages) {
+                    if (movies.isEmpty) {
+                      return Center(
+                        child: Text(
+                          tr('movies.no_movies_found'),
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                      );
+                    }
                     return _buildMoviesGrid(movies, isLoadingMore: false);
                   },
                   paginationLoading: (previousMovies, currentPage) {
@@ -101,6 +125,44 @@ class _MoviesPageState extends State<MoviesPage> {
           ),
         ],
       ),
+    );
+  }
+
+  AppBar _buildDefaultAppBar() {
+    return AppBar(
+      title: Text(tr('movies.title')),
+      automaticallyImplyLeading: false,
+      actions: [
+        IconButton(
+          icon: const Icon(Iconsax.search_normal),
+          onPressed: _startSearch,
+        ),
+      ],
+    );
+  }
+
+  AppBar _buildSearchAppBar() {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      title: TextField(
+        controller: _searchController,
+        autofocus: true,
+        decoration: InputDecoration(
+          hintText: tr('search.hint'),
+          border: InputBorder.none,
+          hintStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
+        ),
+        style: const TextStyle(color: Colors.white),
+        onChanged: (query) {
+          context.read<MoviesCubit>().searchMovies(query);
+        },
+      ),
+      actions: [
+        IconButton(
+          icon: const Icon(Iconsax.close_circle),
+          onPressed: _cancelSearch,
+        ),
+      ],
     );
   }
 

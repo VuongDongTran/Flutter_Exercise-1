@@ -33,4 +33,11 @@ abstract class MoviesRepository {
     int page = 1,
     String language = 'en-US',
   });
+
+  /// Search movies by query
+  Future<MoviesResponse> searchMovies(
+    String query, {
+    int page = 1,
+    String language = 'en-US',
+  });
 }

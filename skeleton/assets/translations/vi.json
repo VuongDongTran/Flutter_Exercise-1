@@ -18,6 +18,7 @@
         "hint": "Tìm theo Thiết bị / Vị trí"
     },
     "login": {
+        "greeting": "CHÀO BẠN!",
         "login": "Đăng nhập",
         "username": "Tên đăng nhập",
         "username_hint": "Nhập tên đăng nhập",
@@ -45,5 +46,27 @@
         "top_rated": "Đánh Giá Cao",
         "coming_soon": "Chương trình TV sẽ hiển thị ở đây",
         "connect_api": "Kết nối TMDB API để tải chương trình TV"
+    },
+    "language": {
+        "label": "Ngôn ngữ",
+        "english": "English",
+        "spanish": "Español",
+        "vietnamese": "Tiếng Việt"
+    },
+    "home": {
+        "greeting": "Bạn muốn xem gì\nhôm nay?",
+        "search_hint": "Tìm kiếm phim, series...",
+        "most_popular": "Phổ biến nhất",
+        "error_loading": "Lỗi tải",
+        "retry": "Thử lại"
+    },
+    "categories": {
+        "films": "Phim",
+        "series": "Chương Trình",
+        "animes": "Anime",
+        "novels": "Tiểu Thuyết"
+    },
+    "content": {
+        "no_found": "Không tìm thấy nội dung"
     }
 }
